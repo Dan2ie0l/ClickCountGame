@@ -16,5 +16,10 @@ namespace ClickCountGame
         {
             InitializeComponent();
         }
+
+        private void btnChangeUsername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

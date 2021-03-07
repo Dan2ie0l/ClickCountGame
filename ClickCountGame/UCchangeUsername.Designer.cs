@@ -61,6 +61,7 @@
             this.btnChangeUsername.TabIndex = 12;
             this.btnChangeUsername.Text = "Change";
             this.btnChangeUsername.UseVisualStyleBackColor = false;
+            this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
             // 
             // UCchangeUsername
             // 

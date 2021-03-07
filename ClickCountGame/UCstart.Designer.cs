@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnStart = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGameDuration = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -45,28 +45,28 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // textBox1
+            // txtGameDuration
             // 
-            this.textBox1.Location = new System.Drawing.Point(339, 168);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtGameDuration.Location = new System.Drawing.Point(339, 168);
+            this.txtGameDuration.Name = "txtGameDuration";
+            this.txtGameDuration.Size = new System.Drawing.Size(162, 20);
+            this.txtGameDuration.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(232, 171);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Game Duration(sec)";
+            this.label1.Text = "Game Duration(sec):";
             // 
             // UCstart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtGameDuration);
             this.Controls.Add(this.btnStart);
             this.Name = "UCstart";
             this.Size = new System.Drawing.Size(800, 427);
@@ -78,7 +78,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtGameDuration;
         private System.Windows.Forms.Label label1;
     }
 }

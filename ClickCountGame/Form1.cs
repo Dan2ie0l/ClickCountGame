@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace ClickCountGame
 {
-     partial class Form1 : Form
+    partial class Form1 : Form
     {
         static Form1 _obj;
+        int count ;
         public static Form1 Instance
         {
             get
@@ -38,57 +39,66 @@ namespace ClickCountGame
                 panelContainer = value;
             }
         }
-        public Button BackButton
-        {
-            get
-            {
-                return btnBack;
-            }
-            set
-            {
-                btnBack = value;
-            }
-        }
-        private int gameDuration;
-        private int gamePassedTime;
-        private int clickCount;
-        
+
+
+
+
         public Form1()
         {
             InitializeComponent();
         }
 
-      
+
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            panelContainer.Controls["UCstart"].BringToFront();
+
 
         }
 
         private void changeUsernameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            UCchangeUsername uc1 = new UCchangeUsername();
+            uc1.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(uc1);
+            panelContainer.Controls["UCchangeUsername"].BringToFront();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
-            btnBack.Visible = false;
-            _obj = this;
+            Player pl1 = new Player();
+            pl1.FirstName = "Daniel";
+            pl1.LastName = "Harutyunyan";
+            pl1.Age = 18;
+            pl1.Score = 100;
+            pl1.Time = 5;
+            Program.players.Add(pl1);
 
+            count = Program.players.Count;
+            _obj = this;
             UCstart uc = new UCstart();
             uc.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc);
+            lblName.Text = Convert.ToString( Program.players[count-1].FirstName + " " + Program.players[count - 1].LastName);
+            lblAge.Text = Convert.ToString(Program.players[count - 1].Age );
+            lblScore.Text = Convert.ToString(Program.players[count - 1].Score + " clicks in " + Program.players[count - 1].Time + " seconds  ");
+            
         }
 
-        private void tmrInterval_Tick(object sender, EventArgs e)
+        private void addPlayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gameDuration++;
-
+            UCaddPlayer uc1 = new UCaddPlayer();
+            uc1.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(uc1);
+            panelContainer.Controls["UCaddPlayer"].BringToFront();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void showPlayersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panelContainer.Controls["UCstart"].BringToFront();
-            btnBack.Visible = false;
+            List objUI = new List();
+            objUI.Show();
+            
         }
     }
 }

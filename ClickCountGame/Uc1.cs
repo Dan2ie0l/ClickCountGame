@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClickCountGame;
+
 
 namespace ClickCountGame
 {
@@ -16,10 +18,47 @@ namespace ClickCountGame
         {
             InitializeComponent();
         }
-
+        public int gamePassedTime;
+        public int clickCount;
+        public int gameDuration;
+        Player result = new Player();
         private void btnClickMe_Click(object sender, EventArgs e)
         {
-            
+            gameDuration = UCstart.Instance.gameDuration;
+            if (!tmrInterval.Enabled)
+            {
+                tmrInterval.Start();
+                lblTime.Text = Convert.ToString(gameDuration);
+            }
+            clickCount++;
+            lblClickCount.Text = Convert.ToString(clickCount);
+          
+           
+        }
+
+        private void tmrInterval_Tick(object sender, EventArgs e)
+        {
+
+            gamePassedTime+=1;
+            lblTime.Text = Convert.ToString(gameDuration-gamePassedTime);
+            if (gamePassedTime == gameDuration)
+            {
+                
+                tmrInterval.Stop();
+                btnClickMe.Enabled = false;
+                MessageBox.Show("Time is up", "Game", MessageBoxButtons.OK);
+                
+            }
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            gameDuration = UCstart.Instance.gameDuration;
+            lblTime.Text = Convert.ToString(gameDuration);
+            btnClickMe.Enabled = true;
+            gamePassedTime = 0;
+            clickCount = 0;
+            lblClickCount.Text = "0";
         }
     }
 }

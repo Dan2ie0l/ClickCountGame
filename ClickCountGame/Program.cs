@@ -18,5 +18,7 @@ namespace ClickCountGame
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+        public static List<Player> players = new List<Player>();
     }
+
 }

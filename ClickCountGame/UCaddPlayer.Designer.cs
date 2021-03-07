@@ -32,9 +32,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtSname = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAddPlayer
@@ -48,6 +48,7 @@
             this.btnAddPlayer.TabIndex = 13;
             this.btnAddPlayer.Text = "Add Player";
             this.btnAddPlayer.UseVisualStyleBackColor = false;
+            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
             // 
             // label3
             // 
@@ -76,26 +77,26 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Name։";
             // 
-            // textBox3
+            // txtAge
             // 
-            this.textBox3.Location = new System.Drawing.Point(289, 221);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtAge.Location = new System.Drawing.Point(289, 221);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(159, 20);
+            this.txtAge.TabIndex = 9;
             // 
-            // textBox2
+            // txtSname
             // 
-            this.textBox2.Location = new System.Drawing.Point(289, 180);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtSname.Location = new System.Drawing.Point(289, 180);
+            this.txtSname.Name = "txtSname";
+            this.txtSname.Size = new System.Drawing.Size(159, 20);
+            this.txtSname.TabIndex = 8;
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(289, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtName.Location = new System.Drawing.Point(289, 136);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(159, 20);
+            this.txtName.TabIndex = 7;
             // 
             // UCaddPlayer
             // 
@@ -105,9 +106,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAge);
+            this.Controls.Add(this.txtSname);
+            this.Controls.Add(this.txtName);
             this.Name = "UCaddPlayer";
             this.Size = new System.Drawing.Size(800, 427);
             this.ResumeLayout(false);
@@ -121,8 +122,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.TextBox txtSname;
+        private System.Windows.Forms.TextBox txtName;
     }
 }
