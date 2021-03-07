@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ClickCountGame
 {
     partial class Form1 : Form
     {
         static Form1 _obj;
-        int count ;
+        int count;
         public static Form1 Instance
         {
             get
@@ -41,13 +42,10 @@ namespace ClickCountGame
         }
 
 
-
-
         public Form1()
         {
             InitializeComponent();
         }
-
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -67,6 +65,31 @@ namespace ClickCountGame
 
         public void Form1_Load(object sender, EventArgs e)
         {
+
+            
+               /*FileStream fs = File.Create("players.txt");
+                
+                string line;
+          
+                StreamReader sr = new StreamReader("players.txt");            
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] items = line.Split(',');
+                    Player pl = new Player();
+                    pl.FirstName = items[0];
+                    pl.LastName = items[1];
+                    pl.Age = int.Parse(items[2]);
+                    pl.Score = int.Parse(items[3]);
+                    pl.Time = int.Parse(items[4]);
+                    Program.players.Add(pl);
+                    line = sr.ReadLine();
+                }
+                sr.Close();
+                Console.ReadLine();
+           */
+
+
             Player pl1 = new Player();
             pl1.FirstName = "Daniel";
             pl1.LastName = "Harutyunyan";
@@ -80,10 +103,10 @@ namespace ClickCountGame
             UCstart uc = new UCstart();
             uc.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc);
-            lblName.Text = Convert.ToString( Program.players[count-1].FirstName + " " + Program.players[count - 1].LastName);
-            lblAge.Text = Convert.ToString(Program.players[count - 1].Age );
+            lblName.Text = Convert.ToString(Program.players[count - 1].FirstName + " " + Program.players[count - 1].LastName);
+            lblAge.Text = Convert.ToString(Program.players[count - 1].Age);
             lblScore.Text = Convert.ToString(Program.players[count - 1].Score + " clicks in " + Program.players[count - 1].Time + " seconds  ");
-            
+
         }
 
         private void addPlayerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,12 +121,28 @@ namespace ClickCountGame
         {
             List objUI = new List();
             objUI.Show();
-            
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            using (TextWriter tw = new StreamWriter("C:\\players.txt"))
+            {
+                foreach (Player item in Program.players)
+                {
+                    tw.WriteLine(item.ToString());
+                }
+                tw.Close();
+            }
+        }
+
     }
 }
+

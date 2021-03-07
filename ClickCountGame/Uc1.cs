@@ -35,18 +35,24 @@ namespace ClickCountGame
           
            
         }
-
+        Player currentPlayer = new Player();
         private void tmrInterval_Tick(object sender, EventArgs e)
         {
-
-            gamePassedTime+=1;
+            int count = Program.players.Count;
+            gamePassedTime +=1;
             lblTime.Text = Convert.ToString(gameDuration-gamePassedTime);
             if (gamePassedTime == gameDuration)
             {
                 
                 tmrInterval.Stop();
                 btnClickMe.Enabled = false;
+                currentPlayer.FirstName = Program.players[count - 1].FirstName;
+                currentPlayer.LastName = Program.players[count - 1].LastName;
+                currentPlayer.Age = Program.players[count - 1].Age;
+                currentPlayer.Score = clickCount;
+                currentPlayer.Time = gameDuration;
                 MessageBox.Show("Time is up", "Game", MessageBoxButtons.OK);
+                Program.players.Add(currentPlayer);
                 
             }
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClickCountGame
 {
-    class Player
+     public  class Player
     {
 
 
@@ -16,7 +16,10 @@ namespace ClickCountGame
         public int Score { get; set; }
         public int Time { get; set; }
 
-
+        public override string ToString()
+        {
+            return $"{FirstName},{LastName},{Age},{Score},{Time}";
+        }
     }
 
 }
