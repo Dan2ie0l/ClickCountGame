@@ -52,7 +52,7 @@ namespace ClickCountGame
                 Program.results.Add(currentPlayer, res);
        
                 MessageBox.Show("Time is up", "Game", MessageBoxButtons.OK);
-                Program.players.Add(currentPlayer);
+               
                 
             }
         }

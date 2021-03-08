@@ -52,6 +52,8 @@ namespace ClickCountGame
             Program.currentPlayer.FirstName = arr[0];
             Program.currentPlayer.LastName = arr[1];
             Program.currentPlayer.Age = int.Parse(arr[2]);
+            Form1.Instance.LblName.Text = Convert.ToString(Program.currentPlayer.FirstName + " " + Program.currentPlayer.LastName);
+            Form1.Instance.LblAge.Text = Convert.ToString(Program.currentPlayer.Age);
             _obj.Refresh();
 
         }

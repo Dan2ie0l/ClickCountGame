@@ -41,6 +41,28 @@ namespace ClickCountGame
             }
         }
 
+        public Label LblName
+        {
+            get
+            {
+                return lblName;
+            }
+            set
+            {
+                lblName = value;
+            }
+        }
+        public Label LblAge
+        {
+            get
+            {
+                return lblAge;
+            }
+            set
+            {
+                lblAge = value;
+            }
+        }
 
         public Form1()
         {
@@ -66,6 +88,8 @@ namespace ClickCountGame
 
         public void Form1_Load(object sender, EventArgs e)
         {
+
+            
 
             
                /*FileStream fs = File.Create("players.txt");
@@ -115,13 +139,7 @@ namespace ClickCountGame
             panelContainer.Controls["UCaddPlayer"].BringToFront();
         }
 
-        private void showPlayersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            List objUI = new List();
-            objUI.Show();
-
-        }
-
+       
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -154,6 +172,11 @@ namespace ClickCountGame
             }
         }
 
+        private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List objUI = new List();
+            objUI.Show();
+        }
     }
 }
 
