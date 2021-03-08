@@ -129,9 +129,18 @@ namespace ClickCountGame
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
 
-            using (TextWriter tw = new StreamWriter("players.txt"))
+
+            using (TextWriter ts = new StreamWriter("players.txt"))
+            {
+                foreach (var item in Program.players)
+                {
+                    ts.WriteLine(item.ToString());
+                }
+                ts.Close();
+            }
+
+            using (TextWriter tw = new StreamWriter("results.txt"))
             {
                 foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results) {
                     tw.Write(kvp.Key.ToString() + ",");

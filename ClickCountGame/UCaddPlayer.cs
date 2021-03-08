@@ -51,7 +51,7 @@ namespace ClickCountGame
             age = int.Parse(txtAge.Text);
             addedPlayer = new Player() { FirstName = name, LastName = sname, Age =age};
             Program.players.Add(addedPlayer);
-            UCchangeUsername.Instance.cmbPlayers.Refresh();
+           
 
         }
     }

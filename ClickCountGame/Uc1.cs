@@ -45,7 +45,7 @@ namespace ClickCountGame
             if (gamePassedTime == gameDuration)
             {
                 
-                tmrInterval.Stop();zZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZAaz
+                tmrInterval.Stop();
                 btnClickMe.Enabled = false;
                 currentPlayer = (Player)Program.currentPlayer.Clone();
                 res.Add(clickCount, gameDuration);
