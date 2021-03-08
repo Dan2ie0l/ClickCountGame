@@ -46,6 +46,7 @@ namespace ClickCountGame
         string selected;
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
+            _obj = this;
             selected =cmbUserNames.SelectedItem.ToString();
             string[] arr = selected.Split(',');
             Program.currentPlayer.FirstName = arr[0];

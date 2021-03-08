@@ -96,7 +96,7 @@ namespace ClickCountGame
             pl1.LastName = "Harutyunyan";
             pl1.Age = 18;
             Program.players.Add(pl1);
-
+            Program.currentPlayer =(Player)pl1.Clone();
             count = Program.players.Count;
             _obj = this;
             UCstart uc = new UCstart();
