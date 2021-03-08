@@ -177,6 +177,8 @@ namespace ClickCountGame
             List objUI = new List();
             objUI.Show();
         }
+
+        
     }
 }
 
