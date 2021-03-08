@@ -43,11 +43,27 @@ namespace ClickCountGame
                 cmbUserNames = value;
             }
         }
-
+        string selected;
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
+            selected =cmbUserNames.SelectedItem.ToString();
+            string[] arr = selected.Split(',');
+            Program.currentPlayer.FirstName = arr[0];
+            Program.currentPlayer.LastName = arr[1];
+            Program.currentPlayer.Age = int.Parse(arr[2]);
+            _obj.Refresh();
 
         }
+
+        public void UCchangeUsername_Load(object sender, EventArgs e)
+        {
+
+            foreach (var item in Program.players)
+            {
+                cmbUserNames.Items.Add(item);
+            }
+        }
+
 
     }
 }

@@ -40,7 +40,6 @@
             this.cmbUserNames.Name = "cmbUserNames";
             this.cmbUserNames.Size = new System.Drawing.Size(188, 21);
             this.cmbUserNames.TabIndex = 0;
-     
             // 
             // label1
             // 
@@ -73,6 +72,7 @@
             this.Controls.Add(this.cmbUserNames);
             this.Name = "UCchangeUsername";
             this.Size = new System.Drawing.Size(800, 427);
+            this.Load += new System.EventHandler(this.UCchangeUsername_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

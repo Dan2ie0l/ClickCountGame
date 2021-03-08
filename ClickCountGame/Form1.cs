@@ -61,9 +61,7 @@ namespace ClickCountGame
             uc1.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc1);
             panelContainer.Controls["UCchangeUsername"].BringToFront();
-            foreach (var item in Program.players) {
-                UCchangeUsername.Instance.cmbPlayers.Items.Add(item);
-              }
+           
         }
 
         public void Form1_Load(object sender, EventArgs e)
