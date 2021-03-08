@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace ClickCountGame
 {
-     public  class Player
+     public  class Player:ICloneable
     {
 
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public int Score { get; set; }
-        public int Time { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+        Dictionary<int, int> results = new Dictionary<int, int>();
+
+
 
         public override string ToString()
         {
-            return $"{FirstName},{LastName},{Age},{Score},{Time}";
+            return $"{FirstName},{LastName},{Age}";
         }
     }
 

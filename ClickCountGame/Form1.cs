@@ -61,6 +61,9 @@ namespace ClickCountGame
             uc1.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc1);
             panelContainer.Controls["UCchangeUsername"].BringToFront();
+            foreach (var item in Program.players) {
+                UCchangeUsername.Instance.cmbPlayers.Items.Add(item);
+              }
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -94,8 +97,6 @@ namespace ClickCountGame
             pl1.FirstName = "Daniel";
             pl1.LastName = "Harutyunyan";
             pl1.Age = 18;
-            pl1.Score = 100;
-            pl1.Time = 5;
             Program.players.Add(pl1);
 
             count = Program.players.Count;
@@ -103,9 +104,8 @@ namespace ClickCountGame
             UCstart uc = new UCstart();
             uc.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc);
-            lblName.Text = Convert.ToString(Program.players[count - 1].FirstName + " " + Program.players[count - 1].LastName);
-            lblAge.Text = Convert.ToString(Program.players[count - 1].Age);
-            lblScore.Text = Convert.ToString(Program.players[count - 1].Score + " clicks in " + Program.players[count - 1].Time + " seconds  ");
+            
+            
 
         }
 
@@ -131,14 +131,18 @@ namespace ClickCountGame
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
 
-
-            using (TextWriter tw = new StreamWriter("C:\\players.txt"))
+            using (TextWriter tw = new StreamWriter("players.txt"))
             {
-                foreach (Player item in Program.players)
-                {
-                    tw.WriteLine(item.ToString());
-                }
+                foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results) {
+                    tw.Write(kvp.Key.ToString() + ",");
+                    
+                foreach (KeyValuePair<int, int> kv in kvp.Value)
+                    {
+                        tw.WriteLine(kv.Key +","+ kv.Value);
+                    }
+                        }
                 tw.Close();
             }
         }

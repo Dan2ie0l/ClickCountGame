@@ -40,6 +40,7 @@
             this.cmbUserNames.Name = "cmbUserNames";
             this.cmbUserNames.Size = new System.Drawing.Size(188, 21);
             this.cmbUserNames.TabIndex = 0;
+     
             // 
             // label1
             // 

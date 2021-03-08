@@ -34,7 +34,7 @@ namespace ClickCountGame
         public string name;
         public string sname;
         public int age;
-        public Player currentPlayer;
+        public Player addedPlayer;
         private void btnAddPlayer_Click(object sender, EventArgs e)
         {
             _obj = this;
@@ -49,7 +49,8 @@ namespace ClickCountGame
             name = txtName.Text;
             sname = txtSname.Text;
             age = int.Parse(txtAge.Text);
-            currentPlayer = new Player() { FirstName = name, LastName = sname, Age =age};
+            addedPlayer = new Player() { FirstName = name, LastName = sname, Age =age};
+            Program.players.Add(addedPlayer);
            
         }
     }

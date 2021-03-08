@@ -16,10 +16,38 @@ namespace ClickCountGame
         {
             InitializeComponent();
         }
+        static UCchangeUsername _obj;
+        public static UCchangeUsername Instance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new UCchangeUsername();
+                }
+                return _obj;
+
+            }
+
+
+        }
+
+        public ComboBox cmbPlayers
+        {
+            get
+            {
+                return cmbUserNames;
+            }
+            set
+            {
+                cmbUserNames = value;
+            }
+        }
 
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

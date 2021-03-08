@@ -35,7 +35,8 @@ namespace ClickCountGame
           
            
         }
-        Player currentPlayer = new Player();
+        Player currentPlayer;
+        Dictionary<int,int> res = new Dictionary<int,int>();
         private void tmrInterval_Tick(object sender, EventArgs e)
         {
             int count = Program.players.Count;
@@ -46,11 +47,10 @@ namespace ClickCountGame
                 
                 tmrInterval.Stop();
                 btnClickMe.Enabled = false;
-                currentPlayer.FirstName = Program.players[count - 1].FirstName;
-                currentPlayer.LastName = Program.players[count - 1].LastName;
-                currentPlayer.Age = Program.players[count - 1].Age;
-                currentPlayer.Score = clickCount;
-                currentPlayer.Time = gameDuration;
+                currentPlayer = (Player)Program.players[count-1].Clone();
+                res.Add(clickCount, gameDuration);
+                Program.results.Add(currentPlayer, res);
+       
                 MessageBox.Show("Time is up", "Game", MessageBoxButtons.OK);
                 Program.players.Add(currentPlayer);
                 
