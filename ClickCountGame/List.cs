@@ -19,7 +19,7 @@ namespace ClickCountGame
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-         
+            lstPlayers.Items.Clear();
             foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results)
             {
                 lstPlayers.Items.Add(kvp.Key.ToString() + " ");
@@ -28,6 +28,17 @@ namespace ClickCountGame
                 {
                     lstPlayers.Items.Add(kv.Key + " " + kv.Value);
                 }
+            }
+        }
+
+        private void btnShowPlayers_Click(object sender, EventArgs e)
+        {
+            lstPlayers.Items.Clear();
+            foreach (var item in Program.players)
+            {
+
+                lstPlayers.Items.Add(item.ToString());
+
             }
         }
     }

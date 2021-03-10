@@ -73,7 +73,7 @@ namespace ClickCountGame
         {
 
             panelContainer.Controls["UCstart"].BringToFront();
-
+           
 
         }
 

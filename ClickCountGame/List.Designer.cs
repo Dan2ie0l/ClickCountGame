@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.lstPlayers = new System.Windows.Forms.ListBox();
-            this.btnShow = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.btnShowResults = new System.Windows.Forms.Button();
+            this.btnShowPlayers = new System.Windows.Forms.Button();
+            this.btnSortPlayers = new System.Windows.Forms.Button();
+            this.btnSortResults = new System.Windows.Forms.Button();
+            this.rbAge = new System.Windows.Forms.RadioButton();
+            this.rbName = new System.Windows.Forms.RadioButton();
+            this.rbScore = new System.Windows.Forms.RadioButton();
+            this.rbtime = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // lstPlayers
@@ -47,102 +47,103 @@
             this.lstPlayers.Size = new System.Drawing.Size(559, 433);
             this.lstPlayers.TabIndex = 0;
             // 
-            // btnShow
+            // btnShowResults
             // 
-            this.btnShow.Location = new System.Drawing.Point(43, 104);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(99, 23);
-            this.btnShow.TabIndex = 1;
-            this.btnShow.Text = "Show Results";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.btnShowResults.Location = new System.Drawing.Point(43, 104);
+            this.btnShowResults.Name = "btnShowResults";
+            this.btnShowResults.Size = new System.Drawing.Size(99, 23);
+            this.btnShowResults.TabIndex = 1;
+            this.btnShowResults.Text = "Show Results";
+            this.btnShowResults.UseVisualStyleBackColor = true;
+            this.btnShowResults.Click += new System.EventHandler(this.btnShow_Click);
             // 
-            // button1
+            // btnShowPlayers
             // 
-            this.button1.Location = new System.Drawing.Point(43, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Show Players";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnShowPlayers.Location = new System.Drawing.Point(43, 64);
+            this.btnShowPlayers.Name = "btnShowPlayers";
+            this.btnShowPlayers.Size = new System.Drawing.Size(99, 23);
+            this.btnShowPlayers.TabIndex = 2;
+            this.btnShowPlayers.Text = "Show Players";
+            this.btnShowPlayers.UseVisualStyleBackColor = true;
+            this.btnShowPlayers.Click += new System.EventHandler(this.btnShowPlayers_Click);
             // 
-            // button2
+            // btnSortPlayers
             // 
-            this.button2.Location = new System.Drawing.Point(43, 157);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Sort Players";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSortPlayers.Location = new System.Drawing.Point(43, 157);
+            this.btnSortPlayers.Name = "btnSortPlayers";
+            this.btnSortPlayers.Size = new System.Drawing.Size(99, 39);
+            this.btnSortPlayers.TabIndex = 3;
+            this.btnSortPlayers.Text = "Sort Players";
+            this.btnSortPlayers.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSortResults
             // 
-            this.button3.Location = new System.Drawing.Point(43, 265);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 39);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Sort Results";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSortResults.Location = new System.Drawing.Point(43, 265);
+            this.btnSortResults.Name = "btnSortResults";
+            this.btnSortResults.Size = new System.Drawing.Size(99, 39);
+            this.btnSortResults.TabIndex = 4;
+            this.btnSortResults.Text = "Sort Results";
+            this.btnSortResults.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbAge
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(29, 215);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(56, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ByAge";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbAge.AutoSize = true;
+            this.rbAge.Location = new System.Drawing.Point(29, 215);
+            this.rbAge.Name = "rbAge";
+            this.rbAge.Size = new System.Drawing.Size(56, 17);
+            this.rbAge.TabIndex = 5;
+            this.rbAge.TabStop = true;
+            this.rbAge.Text = "ByAge";
+            this.rbAge.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbName
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(91, 215);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ByName";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbName.AutoSize = true;
+            this.rbName.Location = new System.Drawing.Point(91, 215);
+            this.rbName.Name = "rbName";
+            this.rbName.Size = new System.Drawing.Size(65, 17);
+            this.rbName.TabIndex = 6;
+            this.rbName.TabStop = true;
+            this.rbName.Text = "ByName";
+            this.rbName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbName.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbScore
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(91, 325);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(65, 17);
-            this.radioButton3.TabIndex = 8;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ByScore";
-            this.radioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbScore.AutoSize = true;
+            this.rbScore.Location = new System.Drawing.Point(91, 325);
+            this.rbScore.Name = "rbScore";
+            this.rbScore.Size = new System.Drawing.Size(65, 17);
+            this.rbScore.TabIndex = 8;
+            this.rbScore.TabStop = true;
+            this.rbScore.Text = "ByScore";
+            this.rbScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbScore.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbtime
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(29, 325);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(60, 17);
-            this.radioButton4.TabIndex = 7;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "ByTime";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbtime.AutoSize = true;
+            this.rbtime.Location = new System.Drawing.Point(29, 325);
+            this.rbtime.Name = "rbtime";
+            this.rbtime.Size = new System.Drawing.Size(60, 17);
+            this.rbtime.TabIndex = 7;
+            this.rbtime.TabStop = true;
+            this.rbtime.Text = "ByTime";
+            this.rbtime.UseVisualStyleBackColor = true;
             // 
             // List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnShow);
+            this.Controls.Add(this.rbScore);
+            this.Controls.Add(this.rbtime);
+            this.Controls.Add(this.rbName);
+            this.Controls.Add(this.rbAge);
+            this.Controls.Add(this.btnSortResults);
+            this.Controls.Add(this.btnSortPlayers);
+            this.Controls.Add(this.btnShowPlayers);
+            this.Controls.Add(this.btnShowResults);
             this.Controls.Add(this.lstPlayers);
             this.Name = "List";
             this.Text = "List";
@@ -154,13 +155,13 @@
         #endregion
 
         private System.Windows.Forms.ListBox lstPlayers;
-        private System.Windows.Forms.Button btnShow;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Button btnShowResults;
+        private System.Windows.Forms.Button btnShowPlayers;
+        private System.Windows.Forms.Button btnSortPlayers;
+        private System.Windows.Forms.Button btnSortResults;
+        private System.Windows.Forms.RadioButton rbAge;
+        private System.Windows.Forms.RadioButton rbName;
+        private System.Windows.Forms.RadioButton rbScore;
+        private System.Windows.Forms.RadioButton rbtime;
     }
 }
