@@ -89,14 +89,10 @@ namespace ClickCountGame
         public void Form1_Load(object sender, EventArgs e)
         {
 
-            
-
-            
-               /*FileStream fs = File.Create("players.txt");
-                
+               
                 string line;
           
-                StreamReader sr = new StreamReader("players.txt");            
+                StreamReader sr = new StreamReader(@"c:\Data\players.txt");            
                 line = sr.ReadLine();
                 while (line != null)
                 {
@@ -105,23 +101,16 @@ namespace ClickCountGame
                     pl.FirstName = items[0];
                     pl.LastName = items[1];
                     pl.Age = int.Parse(items[2]);
-                    pl.Score = int.Parse(items[3]);
-                    pl.Time = int.Parse(items[4]);
+  
                     Program.players.Add(pl);
                     line = sr.ReadLine();
                 }
                 sr.Close();
                 Console.ReadLine();
-           */
+          
 
 
-            Player pl1 = new Player();
-            pl1.FirstName = "Daniel";
-            pl1.LastName = "Harutyunyan";
-            pl1.Age = 18;
-            Program.players.Add(pl1);
-            Program.currentPlayer =(Player)pl1.Clone();
-            count = Program.players.Count;
+            
             _obj = this;
             UCstart uc = new UCstart();
             uc.Dock = DockStyle.Fill;
@@ -145,31 +134,47 @@ namespace ClickCountGame
             Application.Exit();
         }
 
+       
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-
-            using (TextWriter ts = new StreamWriter("players.txt"))
+            string dirPath = @"c:\Data";
+            
+            if (!Directory.Exists(dirPath))
             {
-                foreach (var item in Program.players)
+                Directory.CreateDirectory(dirPath);
+                if (File.Exists(@"c:\Data\players.txt"))
                 {
-                    ts.WriteLine(item.ToString());
-                }
-                ts.Close();
-            }
-
-            using (TextWriter tw = new StreamWriter("results.txt"))
-            {
-                foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results) {
-                    tw.Write(kvp.Key.ToString() + ",");
-                    
-                foreach (KeyValuePair<int, int> kv in kvp.Value)
+                    using (TextWriter ts = new StreamWriter(@"c:\Data\players.txt"))
                     {
-                        tw.WriteLine(kv.Key +","+ kv.Value);
-                    }
+                        foreach (var item in Program.players)
+                        {
+                            ts.WriteLine(item.ToString());
                         }
-                tw.Close();
+                        ts.Close();
+                    }
+                }
+
+                if (File.Exists(@"c:\Data\players.txt"))
+                {
+                    using (TextWriter tw = new StreamWriter(@"c:\Data\results.txt"))
+                    {
+                        foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results)
+                        {
+                            tw.Write(kvp.Key.ToString() + ",");
+
+                            foreach (KeyValuePair<int, int> kv in kvp.Value)
+                            {
+                                tw.WriteLine(kv.Key + "," + kv.Value);
+                            }
+                        }
+                        tw.Close();
+                    }
+                }
+
+               
             }
+           
         }
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
