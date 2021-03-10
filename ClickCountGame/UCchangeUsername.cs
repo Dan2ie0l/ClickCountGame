@@ -46,6 +46,7 @@ namespace ClickCountGame
         string selected;
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
+
             _obj = this;
             selected =cmbUserNames.SelectedItem.ToString();
             string[] arr = selected.Split(',');
@@ -67,6 +68,13 @@ namespace ClickCountGame
             }
         }
 
-
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            cmbPlayers.Items.Clear();
+            foreach (var item in Program.players)
+            {
+                cmbUserNames.Items.Add(item);
+            }
+        }
     }
 }

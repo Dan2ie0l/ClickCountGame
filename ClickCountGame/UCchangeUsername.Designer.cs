@@ -31,6 +31,7 @@
             this.cmbUserNames = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnChangeUsername = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbUserNames
@@ -63,10 +64,22 @@
             this.btnChangeUsername.UseVisualStyleBackColor = false;
             this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Turquoise;
+            this.btnRefresh.Location = new System.Drawing.Point(500, 152);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // UCchangeUsername
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnChangeUsername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbUserNames);
@@ -83,5 +96,6 @@
         private System.Windows.Forms.ComboBox cmbUserNames;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnChangeUsername;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

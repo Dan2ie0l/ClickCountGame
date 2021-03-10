@@ -174,7 +174,7 @@ namespace ClickCountGame
 
                
             }
-           
+            MessageBox.Show("Everything is saved successfully on C://Date", "Saving", MessageBoxButtons.OK);
         }
 
         private void statisticsToolStripMenuItem_Click(object sender, EventArgs e)
