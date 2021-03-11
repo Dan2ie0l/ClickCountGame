@@ -97,10 +97,18 @@ namespace ClickCountGame
             {
                 Directory.CreateDirectory(dirPath);
             }
-
-                if (!File.Exists(@"c:\Data\players.txt"))
+            if (!File.Exists(@"c:\Data\players.txt"))
+            {
+                File.Create(@"c:\Data\players.txt");
+            }
+            if (!File.Exists(@"c:\Data\results.txt"))
+            {
+                File.Create(@"c:\Data\results.txt");
+            }
+            if (File.Exists(@"c:\Data\results.txt"))
                 {
-                    StreamReader sr = new StreamReader(@"c:\Data\players.txt");
+                     
+                    StreamReader sr = new StreamReader(@"c:\Data\results.txt");
                     line = sr.ReadLine();
                     while (line != null)
                     {
@@ -110,14 +118,32 @@ namespace ClickCountGame
                         pl.LastName = items[1];
                         pl.Age = int.Parse(items[2]);
                         pl.results.Add(int.Parse(items[3]), int.Parse(items[4]));
-                        Program.players.Add(pl);
+                        Program.results.Add(pl);
                         line = sr.ReadLine();
                     }
                     sr.Close();
                     Console.ReadLine();
                 }
+            if (File.Exists(@"c:\Data\players.txt"))
+            {
 
-            
+                StreamReader sr = new StreamReader(@"c:\Data\players.txt");
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    string[] items = line.Split(',');
+                    Player pl = new Player();
+                    pl.FirstName = items[0];
+                    pl.LastName = items[1];
+                    pl.Age = int.Parse(items[2]);
+                    Program.players.Add(pl);
+                    line = sr.ReadLine();
+                }
+                sr.Close();
+                Console.ReadLine();
+            }
+
+
 
 
             _obj = this;
@@ -162,12 +188,14 @@ namespace ClickCountGame
 
                             foreach (var i in item.results)
                             {
-                                tw.Write(i.Key + " " + i.Value);
+                                tw.Write("," +i.Key + "," + i.Value);
                             }
                         }
                         tw.Close();
                     }
                 }
+
+               
 
 
             }

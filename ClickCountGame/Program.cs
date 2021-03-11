@@ -19,6 +19,7 @@ namespace ClickCountGame
             Application.Run(new Form1());
         }
         public static List<Player> players = new List<Player>();
+        public static List<Player> results = new List<Player>();
         public static Player currentPlayer = new Player();
     }
 
