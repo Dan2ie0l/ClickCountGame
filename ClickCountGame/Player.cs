@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClickCountGame
 {
-     public  class Player:ICloneable
+    public class Player : ICloneable
     {
 
 
@@ -18,8 +18,8 @@ namespace ClickCountGame
         {
             return this.MemberwiseClone();
         }
-        Dictionary<int, int> results = new Dictionary<int, int>();
 
+        public Dictionary<int, int> results = new Dictionary<int, int>();
 
 
         public override string ToString()

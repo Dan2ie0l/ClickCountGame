@@ -14,7 +14,7 @@ namespace ClickCountGame
     partial class Form1 : Form
     {
         static Form1 _obj;
-        int count;
+
         public static Form1 Instance
         {
             get
@@ -73,7 +73,7 @@ namespace ClickCountGame
         {
 
             panelContainer.Controls["UCstart"].BringToFront();
-           
+
 
         }
 
@@ -83,40 +83,49 @@ namespace ClickCountGame
             uc1.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc1);
             panelContainer.Controls["UCchangeUsername"].BringToFront();
-           
+
         }
 
         public void Form1_Load(object sender, EventArgs e)
         {
 
-               
-                string line;
-          
-                StreamReader sr = new StreamReader(@"c:\Data\players.txt");            
-                line = sr.ReadLine();
-                while (line != null)
-                {
-                    string[] items = line.Split(',');
-                    Player pl = new Player();
-                    pl.FirstName = items[0];
-                    pl.LastName = items[1];
-                    pl.Age = int.Parse(items[2]);
-  
-                    Program.players.Add(pl);
-                    line = sr.ReadLine();
-                }
-                sr.Close();
-                Console.ReadLine();
-          
 
+            string line;
+            string dirPath = @"c:\Data";
+
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+                if (!File.Exists(@"c:\Data\players.txt"))
+                {
+                    StreamReader sr = new StreamReader(@"c:\Data\players.txt");
+                    line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        string[] items = line.Split(',');
+                        Player pl = new Player();
+                        pl.FirstName = items[0];
+                        pl.LastName = items[1];
+                        pl.Age = int.Parse(items[2]);
+                        pl.results.Add(int.Parse(items[3]), int.Parse(items[4]));
+                        Program.players.Add(pl);
+                        line = sr.ReadLine();
+                    }
+                    sr.Close();
+                    Console.ReadLine();
+                }
 
             
+
+
             _obj = this;
             UCstart uc = new UCstart();
             uc.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc);
-            
-            
+
+
 
         }
 
@@ -128,51 +137,39 @@ namespace ClickCountGame
             panelContainer.Controls["UCaddPlayer"].BringToFront();
         }
 
-       
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-       
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             string dirPath = @"c:\Data";
-            
-            if (!Directory.Exists(dirPath))
+
+            if (Directory.Exists(dirPath))
             {
-                Directory.CreateDirectory(dirPath);
+              
                 if (File.Exists(@"c:\Data\players.txt"))
                 {
-                    using (TextWriter ts = new StreamWriter(@"c:\Data\players.txt"))
+                    using (TextWriter tw = new StreamWriter(@"c:\Data\players.txt"))
                     {
                         foreach (var item in Program.players)
                         {
-                            ts.WriteLine(item.ToString());
-                        }
-                        ts.Close();
-                    }
-                }
+                            tw.Write(item.ToString());
 
-                if (File.Exists(@"c:\Data\players.txt"))
-                {
-                    using (TextWriter tw = new StreamWriter(@"c:\Data\results.txt"))
-                    {
-                        foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results)
-                        {
-                            tw.Write(kvp.Key.ToString() + ",");
-
-                            foreach (KeyValuePair<int, int> kv in kvp.Value)
+                            foreach (var i in item.results)
                             {
-                                tw.WriteLine(kv.Key + "," + kv.Value);
+                                tw.Write(i.Key + " " + i.Value);
                             }
                         }
                         tw.Close();
                     }
                 }
 
-               
+
             }
             MessageBox.Show("Everything is saved successfully on C://Date", "Saving", MessageBoxButtons.OK);
         }
@@ -183,7 +180,7 @@ namespace ClickCountGame
             objUI.Show();
         }
 
-        
+
     }
 }
 

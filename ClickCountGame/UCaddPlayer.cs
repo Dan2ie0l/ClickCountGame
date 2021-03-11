@@ -49,7 +49,7 @@ namespace ClickCountGame
             name = txtName.Text;
             sname = txtSname.Text;
             age = int.Parse(txtAge.Text);
-            addedPlayer = new Player() { FirstName = name, LastName = sname, Age =age};
+            addedPlayer = new Player() { FirstName = name, LastName = sname, Age = age };
             Program.players.Add(addedPlayer);
             txtAge.Clear();
             txtName.Clear();

@@ -44,11 +44,14 @@ namespace ClickCountGame
             }
         }
         string selected;
+        public int index = 0;
+
         private void btnChangeUsername_Click(object sender, EventArgs e)
         {
 
             _obj = this;
-            selected =cmbUserNames.SelectedItem.ToString();
+            index = cmbUserNames.SelectedIndex;
+            selected = cmbUserNames.SelectedItem.ToString();
             string[] arr = selected.Split(',');
             Program.currentPlayer.FirstName = arr[0];
             Program.currentPlayer.LastName = arr[1];

@@ -34,7 +34,7 @@ namespace ClickCountGame
         public int gameDuration;
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
+
             _obj = this;
             if (!Form1.Instance.PnlContainer.Controls.ContainsKey("Uc1"))
             {

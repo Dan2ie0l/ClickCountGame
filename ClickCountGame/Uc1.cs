@@ -21,7 +21,7 @@ namespace ClickCountGame
         public int gamePassedTime;
         public int clickCount;
         public int gameDuration;
-        Player result = new Player();
+
         private void btnClickMe_Click(object sender, EventArgs e)
         {
             gameDuration = UCstart.Instance.gameDuration;
@@ -32,28 +32,37 @@ namespace ClickCountGame
             }
             clickCount++;
             lblClickCount.Text = Convert.ToString(clickCount);
-          
-           
+
+
         }
         Player currentPlayer;
-        Dictionary<int,int> res = new Dictionary<int,int>();
+        public int index = UCchangeUsername.Instance.index;
         private void tmrInterval_Tick(object sender, EventArgs e)
         {
-            int count = Program.players.Count;
-            gamePassedTime +=1;
-            lblTime.Text = Convert.ToString(gameDuration-gamePassedTime);
+
+            gamePassedTime += 1;
+            lblTime.Text = Convert.ToString(gameDuration - gamePassedTime);
             if (gamePassedTime == gameDuration)
             {
-                
+
                 tmrInterval.Stop();
                 btnClickMe.Enabled = false;
                 currentPlayer = (Player)Program.currentPlayer.Clone();
-                res.Add(clickCount, gameDuration);
-                Program.results.Add(currentPlayer, res);
-       
+                try
+                {
+                    currentPlayer.results.Add(clickCount, gameDuration);
+                    Program.players[index] = (Player)currentPlayer.Clone();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.Message, "Error", MessageBoxButtons.OK);
+                }
+
+
+
                 MessageBox.Show("Time is up", "Game", MessageBoxButtons.OK);
-               
-                
+
+
             }
         }
 

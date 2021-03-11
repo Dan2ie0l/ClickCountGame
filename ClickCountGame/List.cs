@@ -20,13 +20,13 @@ namespace ClickCountGame
         private void btnShow_Click(object sender, EventArgs e)
         {
             lstPlayers.Items.Clear();
-            foreach (KeyValuePair<Player, Dictionary<int, int>> kvp in Program.results)
+            foreach (var item in Program.players)
             {
-                lstPlayers.Items.Add(kvp.Key.ToString() + " ");
+                lstPlayers.Items.Add(item.ToString());
 
-                foreach (KeyValuePair<int, int> kv in kvp.Value)
+                foreach (var i in item.results)
                 {
-                    lstPlayers.Items.Add(kv.Key + " " + kv.Value);
+                    lstPlayers.Items.Add(i.Key + " " + i.Value);
                 }
             }
         }
